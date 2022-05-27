@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user', [UserController::class, 'index'])->middleware('auth')->name('user');
+Route::get('/user', [UserController::class, 'index'])->middleware('auth')->name('user');
 
 
 Route::get('/home', function () {

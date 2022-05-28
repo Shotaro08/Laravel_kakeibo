@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComponentTestController;
 use App\Http\Controllers\LifeCycleTestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/user', [UserController::class, 'index'])->middleware('auth')->name('user');
+Route::get('/user/create', [MainController::class, 'create'])->middleware('auth')->name('user.create');
 
 
 Route::get('/home', function () {

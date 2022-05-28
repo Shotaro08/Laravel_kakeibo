@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Main;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
@@ -17,18 +18,20 @@ class UserController extends Controller
 
     public function index()
     {
-        $e_all = User::all();
+        // $e_all = User::all();
 
-        $q_get = DB::table('users')->select('email', 'created_at')->get();
-        $q_first = DB::table('users')->select('email')->first();
+        // $q_get = DB::table('users')->select('email', 'created_at')->get();
+        // $q_first = DB::table('users')->select('email')->first();
 
-        $c_test = collect([
-            'name' => 'test',
-        ]);
+        // $c_test = collect([
+        //     'name' => 'test',
+        // ]);
 
-        $date = Carbon::now();
+        // $date = Carbon::now();
 
-        return view('user.index', compact('e_all'));
+        $e_main_all = Main::all();
+
+        return view('user.index', compact('e_main_all'));
     }
 
     /**

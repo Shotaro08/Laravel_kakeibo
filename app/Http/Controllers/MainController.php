@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Main;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -39,6 +40,7 @@ class MainController extends Controller
         $date = $request->date;
         $amount = $request->amount;
         $description = $request->description;
+        $user_id = Auth::id();
 
         $request->validate([
             'month' => ['required', 'integer', 'digits_between:1,2'],
@@ -54,7 +56,7 @@ class MainController extends Controller
             'description' => $request->description,
             // user_id以降エラーが出てしまうのでとりあえず追加
             // migrationFileの編集が必要（nullable or inputform追加）
-            'user_id' => 3,
+            'user_id' => $user_id,
             'year' => 2022,
             'category1_id' => 3,
             'category2_id' => 3,
@@ -83,9 +85,20 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        // $id = Main::where();
+
+        $user_id = Auth::id();
+        $main_id = 1;
+
+        // $e_main = Main::where('id', $user_id)->get();
+
+        $e_main = Main::where('user_id', $user_id)
+        ->where('id', $main_id)
+        ->get();
+
+        return view('user.edit', compact('e_main'));
     }
 
     /**

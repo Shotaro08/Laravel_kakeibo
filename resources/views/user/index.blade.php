@@ -41,7 +41,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($e_main_all as $e)
+                                    @foreach ($e_main as $e)
                                         <tr>
                                             <td class="px-4 py-3">{{ $e->month }}月</td>
                                             <td class="px-4 py-3">{{ $e->date }}日</td>

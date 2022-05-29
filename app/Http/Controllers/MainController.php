@@ -52,8 +52,8 @@ class MainController extends Controller
             'date' => $request->date,
             'amount' => $request->amount,
             'description' => $request->description,
-            // エラーが出てしまうのでとりあえず追加
-            // migrationFileの編集が必要
+            // user_id以降エラーが出てしまうのでとりあえず追加
+            // migrationFileの編集が必要（nullable or inputform追加）
             'user_id' => 3,
             'year' => 2022,
             'category1_id' => 3,

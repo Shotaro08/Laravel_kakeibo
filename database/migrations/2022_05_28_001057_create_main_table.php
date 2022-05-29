@@ -14,6 +14,7 @@ class CreateMainTable extends Migration
     public function up()
     {
         Schema::create('main', function (Blueprint $table) {
+            // nullable()つけるところを確認する
             $table->id();
             $table->integer('user_id');
             $table->integer('year');

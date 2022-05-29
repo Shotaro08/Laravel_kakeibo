@@ -816,6 +816,9 @@ select {
 .w-1\/2 {
   width: 50%;
 }
+.w-1\/6 {
+  width: 16.666667%;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -833,6 +836,9 @@ select {
 }
 .table-auto {
   table-layout: auto;
+}
+.table-fixed {
+  table-layout: fixed;
 }
 .origin-top-left {
   transform-origin: top left;

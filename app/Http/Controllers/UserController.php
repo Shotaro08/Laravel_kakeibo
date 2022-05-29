@@ -18,17 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        // $e_all = User::all();
-
-        // $q_get = DB::table('users')->select('email', 'created_at')->get();
-        // $q_first = DB::table('users')->select('email')->first();
-
-        // $c_test = collect([
-        //     'name' => 'test',
-        // ]);
-
-        // $date = Carbon::now();
-
+        // データベースから支払い明細の取得
         $e_main_all = Main::all();
 
         return view('user.index', compact('e_main_all'));

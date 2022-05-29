@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Main;
 
 class MainController extends Controller
 {
@@ -34,7 +35,35 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $month = $request->month;
+        $date = $request->date;
+        $amount = $request->amount;
+        $description = $request->description;
+
+        $request->validate([
+            'month' => ['required', 'integer', 'digits_between:1,2'],
+            'date' => ['required', 'integer', 'digits_between:1,2'],
+            'amount' => ['required', 'integer'],
+            'description' => ['required', 'string', 'max:20'],
+        ]);
+
+        Main::create([
+            'month' => $request->month,
+            'date' => $request->date,
+            'amount' => $request->amount,
+            'description' => $request->description,
+            // user_id以降エラーが出てしまうのでとりあえず追加
+            // migrationFileの編集が必要（nullable or inputform追加）
+            'user_id' => 3,
+            'year' => 2022,
+            'category1_id' => 3,
+            'category2_id' => 3,
+            'payment_method_id' => 3,
+
+        ]);
+
+        return redirect()->route('user.index')
+        ->with('message', '支払いを登録しました');
     }
 
     /**

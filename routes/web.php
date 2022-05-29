@@ -21,8 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', [UserController::class, 'index'])->middleware('auth')->name('user');
+Route::get('/user/index', [UserController::class, 'index'])->middleware('auth')->name('user.index');
 Route::get('/user/create', [MainController::class, 'create'])->middleware('auth')->name('user.create');
+Route::post('/user/store', [MainController::class, 'store'])->middleware('auth')->name('user.store');
 
 
 Route::get('/home', function () {

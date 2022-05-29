@@ -62,7 +62,8 @@ class MainController extends Controller
 
         ]);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')
+        ->with('message', '支払いを登録しました');
     }
 
     /**

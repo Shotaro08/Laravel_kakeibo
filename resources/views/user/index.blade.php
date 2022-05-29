@@ -13,6 +13,8 @@
                         <div class="flex flex-col text-center w-full mb-5">
                             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">収支明細</h1>
                         </div>
+                        {{-- 登録後のフラッシュメッセージ --}}
+                        <x-flash-message status='info' />
                         <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <div class="flex justify-end">
                                 <button onclick="location.href='{{ route('user.create') }}'"

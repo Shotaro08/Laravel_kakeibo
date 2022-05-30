@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Main;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -19,9 +20,14 @@ class UserController extends Controller
     public function index()
     {
         // データベースから支払い明細の取得
-        $e_main_all = Main::all();
 
-        return view('user.index', compact('e_main_all'));
+        $user_id = Auth::id();
+
+        // $e_main = Main::where('id', $user_id)->get();
+
+        $e_main = Main::where('user_id', $user_id)->get();
+
+        return view('user.index', compact('e_main'));
     }
 
     /**

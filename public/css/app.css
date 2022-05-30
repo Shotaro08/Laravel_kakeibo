@@ -1040,13 +1040,13 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-24 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 .py-6 {
   padding-top: 1.5rem;

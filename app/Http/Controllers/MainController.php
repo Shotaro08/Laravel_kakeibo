@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $e_main = Main::where('user_id', $user_id)->get();
+
+        return view('user.index', compact('e_main'));
     }
 
     /**
@@ -85,20 +92,11 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        // $id = Main::where();
+        $main_desc = Main::find($id);
 
-        $user_id = Auth::id();
-        $main_id = 1;
-
-        // $e_main = Main::where('id', $user_id)->get();
-
-        $e_main = Main::where('user_id', $user_id)
-        ->where('id', $main_id)
-        ->get();
-
-        return view('user.edit', compact('e_main'));
+        return view('user.edit', compact('main_desc'));
     }
 
     /**

@@ -72,7 +72,7 @@ class MainController extends Controller
         ]);
 
         return redirect()->route('user.index')
-        ->with('message', '支払いを登録しました');
+        ->with(['message' => '支払いを登録しました', 'status' => 'info']);
     }
 
     /**
@@ -119,7 +119,7 @@ class MainController extends Controller
 
         return redirect()
         ->route('user.index')
-        ->with('message', '情報を更新しました');
+        ->with(['message' => '明細を更新しました', 'status' => 'info']);
 
         // 更新情報取得を確認済
         // dd($main->month, $main->date, $main->amount, $main->description);
@@ -133,6 +133,9 @@ class MainController extends Controller
      */
     public function destroy($id)
     {
-        dd('削除処理');
+        Main::findOrFail($id)->delete();
+
+        return redirect()->route('user.index')
+        ->with(['message' => '明細を削除しました', 'status' => 'alert']);
     }
 }

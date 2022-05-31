@@ -26,6 +26,7 @@ class CreateMainTable extends Migration
             $table->string('description');
             $table->integer('payment_method_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

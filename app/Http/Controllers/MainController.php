@@ -20,7 +20,7 @@ class MainController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $e_main = Main::where('user_id', $user_id)->get();
+        $e_main = Main::where('user_id', $user_id)->paginate(10);
 
         return view('user.index', compact('e_main'));
     }

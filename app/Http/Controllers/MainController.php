@@ -108,7 +108,20 @@ class MainController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $main = Main::findOrFail($id);
+
+        $main->month = $request->month;
+        $main->date = $request->date;
+        $main->amount = $request->amount;
+        $main->description = $request->description;
+        $main->save();
+
+        return redirect()
+        ->route('user.index')
+        ->with('message', '情報を更新しました');
+
+        // 更新情報取得を確認済
+        dd($main->month, $main->date, $main->amount, $main->description);
     }
 
     /**

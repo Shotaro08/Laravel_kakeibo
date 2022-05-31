@@ -114,6 +114,7 @@ class MainController extends Controller
         $main->date = $request->date;
         $main->amount = $request->amount;
         $main->description = $request->description;
+
         $main->save();
 
         return redirect()
@@ -121,7 +122,7 @@ class MainController extends Controller
         ->with('message', '情報を更新しました');
 
         // 更新情報取得を確認済
-        dd($main->month, $main->date, $main->amount, $main->description);
+        // dd($main->month, $main->date, $main->amount, $main->description);
     }
 
     /**
@@ -132,6 +133,6 @@ class MainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('削除処理');
     }
 }

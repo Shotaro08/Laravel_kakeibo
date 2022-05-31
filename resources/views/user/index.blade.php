@@ -38,6 +38,9 @@
                                         <th
                                             class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
                                         </th>
+                                        <th
+                                            class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,8 +53,17 @@
                                             <td class="px-4 py-3">{{ $e->description }}</td>
                                             <td class="px-4 py-3">
                                                 <button onclick="location.href='{{ route('user.edit', $e->id) }}'"
-                                    class="flex ml-auto text-white bg-blue-400 border-0 py-2 px-4 focus:outline-none hover:bg-blue-500 rounded">編集</button>
+                                                    class="flex ml-auto text-white bg-blue-400 border-0 py-2 px-4 focus:outline-none hover:bg-blue-500 rounded">編集</button>
                                             </td>
+                                            <form id="delete_{{ $e->id }}" method="post" action="{{ route('user.destroy', $e->id) }}">
+                                                @method('delete')
+                                                @csrf
+                                                <td class="px-4 py-3">
+                                                    <a href="#" data-id="{{ $e->id }}"
+                                                        onclick="deleteMain(this)"
+                                                        class="flex ml-auto text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">削除</a>
+                                                </td>
+                                            </form>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -62,4 +74,13 @@
             </div>
         </div>
     </div>
+    <script>
+        function deleteMain(e) {
+            'use strict';
+            if (confirm('本当に削除しますか？')) {
+                document.getElementById('delete_' + e.dataset.id).submit();
+            }
+        }
+
+    </script>
 </x-app-layout>

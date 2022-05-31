@@ -29,6 +29,12 @@ Route::get('/', function () {
 
 Route::resource('user', MainController::class)->middleware('auth');
 
+Route::prefix('user')
+->middleware('auth')->group(function(){
+    Route::get('delete-post/index', [MainController::class, 'deletePostIndex'])->name('user.delete-post.index');
+    Route::post('destroy/{post}', [MainController::class, 'deletePostDestroy'])->name('user.delete-post.destroy');
+});
+
 Route::get('/home', function () {
     return view('user.dashboard');
 })->middleware('auth')->name('dashboard');

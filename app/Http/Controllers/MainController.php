@@ -138,4 +138,17 @@ class MainController extends Controller
         return redirect()->route('user.index')
         ->with(['message' => '明細を削除しました', 'status' => 'alert']);
     }
+
+    public function deletePostIndex(){
+        $deletePosts = Main::onlyTrashed()->get();
+
+        return view('user.delete-post', compact('deletePosts'));
+    }
+
+    public function deletePostDestroy($id){
+
+        $main = Main::onlyTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect()->route('user.delete-post.index');
+    }
 }

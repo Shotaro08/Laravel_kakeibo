@@ -59,9 +59,9 @@
                                                 @method('delete')
                                                 @csrf
                                                 <td class="px-4 py-3">
-                                                    <a href="#" data-id="{{ $e->id }}"
+                                                    <button href="#" data-id="{{ $e->id }}"
                                                         onclick="deleteMain(this)"
-                                                        class="flex ml-auto text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">削除</a>
+                                                        class="flex ml-auto text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">削除</button>
                                                 </td>
                                             </form>
                                         </tr>

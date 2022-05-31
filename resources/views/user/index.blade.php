@@ -68,6 +68,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $e_main->links() }}
                         </div>
                     </div>
                 </section>

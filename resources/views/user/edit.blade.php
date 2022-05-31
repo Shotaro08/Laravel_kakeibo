@@ -1,7 +1,3 @@
-<div>
-    <p>{{ $main_desc->id }}</p>
-</div>
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -21,7 +17,7 @@
                             </div>
                             <div class="lg:w-1/2 md:w-2/3 mx-auto">
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                                <form action="{{ route('user.index') }}" method="post">
+                                <form action="{{ route('user.update', $main_desc->id) }}" method="post">
                                     @csrf
                                     <div class="-m-2">
                                         <div class="p-2 w-1/2 mx-auto">
@@ -57,7 +53,7 @@
                                             <button type="button" onclick="location.href='{{ route('user.index') }}'"
                                                 class=" text-white bg-gray-300 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">Cancel</button>
                                             <button type="submit"
-                                                class=" text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">登録する</button>
+                                                class=" text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">更新する</button>
                                         </div>
                                     </div>
                                 </form>

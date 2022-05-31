@@ -94,7 +94,7 @@ class MainController extends Controller
      */
     public function edit($id)
     {
-        $main_desc = Main::find($id);
+        $main_desc = Main::findOrFail($id);
 
         return view('user.edit', compact('main_desc'));
     }

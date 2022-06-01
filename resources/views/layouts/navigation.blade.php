@@ -80,7 +80,13 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                HOME
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                収支管理
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.delete-post.index')" :active="request()->routeIs('user.delete-post.index')">
+                削除済明細
             </x-responsive-nav-link>
         </div>
 

@@ -27,7 +27,7 @@ Route::get('/', function () {
 // Route::get('/user/edit', [MainController::class, 'edit'])->middleware('auth')->name('user.edit');
 // Route::get('/user/update', [MainController::class, 'update'])->middleware('auth')->name('user.update');
 
-Route::resource('user', MainController::class)->middleware('auth');
+Route::resource('user', MainController::class)->middleware('auth')->except(['show']);
 
 Route::prefix('user')
 ->middleware('auth')->group(function(){

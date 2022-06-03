@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Main;
+use App\Models\PrimaryCategory;
+use App\Models\SecondaryCategory;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -21,6 +23,13 @@ class MainController extends Controller
     {
         $user_id = Auth::id();
         $e_main = Main::where('user_id', $user_id)->paginate(10);
+
+        $p_cate = PrimaryCategory::find(2);
+
+
+        dd($p_cate->secondary);
+
+
 
         return view('user.index', compact('e_main'));
     }
@@ -61,9 +70,9 @@ class MainController extends Controller
             'date' => $request->date,
             'amount' => $request->amount,
             'description' => $request->description,
-            // user_id以降エラーが出てしまうのでとりあえず追加
-            // migrationFileの編集が必要（nullable or inputform追加）
             'user_id' => $user_id,
+            // 以下エラーが出てしまうのでとりあえず追加
+            // migrationFileの編集が必要（nullable or inputform追加）
             'year' => 2022,
             'category1_id' => 3,
             'category2_id' => 3,

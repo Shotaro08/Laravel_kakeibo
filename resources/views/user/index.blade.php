@@ -68,7 +68,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $e_main->links() }}
+                            <div class="mt-2 p-2">{{ $e_main->links() }}</div>
                         </div>
                     </div>
                 </section>

@@ -20,11 +20,11 @@ class CreateMainTable extends Migration
             $table->integer('year');
             $table->integer('month');
             $table->integer('date');
-            $table->integer('category1_id');
+            $table->integer('primary_category_id');
             $table->integer('secondary_category_id');
             $table->integer('amount');
             $table->string('description');
-            $table->integer('payment_methods_id');
+            $table->foreignId('payment_methods_id');
             $table->timestamps();
             $table->softDeletes();
         });

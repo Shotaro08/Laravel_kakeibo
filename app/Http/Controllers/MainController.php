@@ -24,13 +24,6 @@ class MainController extends Controller
         $user_id = Auth::id();
         $e_main = Main::where('user_id', $user_id)->paginate(10);
 
-        $p_cate = PrimaryCategory::find(2);
-
-
-        dd($p_cate->secondary);
-
-
-
         return view('user.index', compact('e_main'));
     }
 

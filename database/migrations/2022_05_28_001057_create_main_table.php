@@ -16,7 +16,7 @@ class CreateMainTable extends Migration
         Schema::create('main', function (Blueprint $table) {
             // nullable()つけるところを確認する
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->integer('user_id');
             $table->integer('year');
             $table->integer('month');
             $table->integer('date');

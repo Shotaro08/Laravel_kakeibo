@@ -15,7 +15,6 @@ class CreatePaymentMethodsTable extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_methods_id');
             $table->string('name');
             $table->integer('sort_order');
             $table->timestamps();

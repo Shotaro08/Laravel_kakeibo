@@ -151,7 +151,6 @@ class MainController extends Controller
 
     public function deletePostDestroy($id)
     {
-
         $main = Main::onlyTrashed()->findOrFail($id)->forceDelete();
 
         return redirect()->route('user.delete-post.index');

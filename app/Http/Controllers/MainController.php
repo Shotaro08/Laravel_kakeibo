@@ -67,14 +67,13 @@ class MainController extends Controller
             // 以下エラーが出てしまうのでとりあえず追加
             // migrationFileの編集が必要（nullable or inputform追加）
             'year' => 2022,
-            'category1_id' => 3,
-            'category2_id' => 3,
-            'payment_method_id' => 3,
+            'primary_categories_id' => 3,
+            'payment_methods_id' => 3,
 
         ]);
 
         return redirect()->route('user.index')
-        ->with(['message' => '支払いを登録しました', 'status' => 'info']);
+            ->with(['message' => '支払いを登録しました', 'status' => 'info']);
     }
 
     /**
@@ -120,8 +119,8 @@ class MainController extends Controller
         $main->save();
 
         return redirect()
-        ->route('user.index')
-        ->with(['message' => '明細を更新しました', 'status' => 'info']);
+            ->route('user.index')
+            ->with(['message' => '明細を更新しました', 'status' => 'info']);
 
         // 更新情報取得を確認済
         // dd($main->month, $main->date, $main->amount, $main->description);
@@ -138,16 +137,18 @@ class MainController extends Controller
         Main::findOrFail($id)->delete();
 
         return redirect()->route('user.index')
-        ->with(['message' => '明細を削除しました', 'status' => 'alert']);
+            ->with(['message' => '明細を削除しました', 'status' => 'alert']);
     }
 
-    public function deletePostIndex(){
+    public function deletePostIndex()
+    {
         $deletePosts = Main::onlyTrashed()->get();
 
         return view('user.delete-post', compact('deletePosts'));
     }
 
-    public function deletePostDestroy($id){
+    public function deletePostDestroy($id)
+    {
 
         $main = Main::onlyTrashed()->findOrFail($id)->forceDelete();
 

@@ -17,13 +17,18 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function dashboard(){
+        $user_id = Auth::id();
+        $user = User::where('id', $user_id)->get();
+
+        return view('user.dashboard', compact('user'));
+    }
+
     public function index()
     {
         // データベースから支払い明細の取得
 
         $user_id = Auth::id();
-
-        // $e_main = Main::where('id', $user_id)->get();
 
         $e_main = Main::where('user_id', $user_id)->get();
 

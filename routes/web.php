@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ComponentTestController;
 // use App\Http\Controllers\LifeCycleTestController;
-// use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
 
 /*
@@ -35,8 +35,11 @@ Route::prefix('user')
     Route::post('destroy/{post}', [MainController::class, 'deletePostDestroy'])->name('user.delete-post.destroy');
 });
 
-Route::get('/home', function () {
-    return view('user.dashboard');
-})->middleware('auth')->name('dashboard');
+// Route::get('/home', function () {
+//     return view('user.dashboard');
+// })->middleware('auth')->name('dashboard');
+
+Route::get('/home', [UserController::class, 'dashboard'])->middleware('auth')->name('dashboard');;
+
 
 require __DIR__.'/auth.php';

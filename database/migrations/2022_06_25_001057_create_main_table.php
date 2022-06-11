@@ -20,11 +20,11 @@ class CreateMainTable extends Migration
             $table->integer('year');
             $table->integer('month');
             $table->integer('date');
-            $table->foreignId('primary_categories_id')->constrained();
+            $table->foreignId('primary_categories_id')->nullable()->constrained();
             // $table->integer('secondary_category_id');
             $table->integer('amount');
             $table->string('description');
-            $table->foreignId('payment_methods_id')->constrained();
+            $table->foreignId('payment_methods_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

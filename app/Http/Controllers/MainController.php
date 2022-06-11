@@ -51,6 +51,9 @@ class MainController extends Controller
         $description = $request->description;
         $user_id = Auth::id();
 
+        $pId = 1;
+        $pmId = 1;
+
         $request->validate([
             'month' => ['required', 'integer', 'digits_between:1,2'],
             'date' => ['required', 'integer', 'digits_between:1,2'],
@@ -67,9 +70,8 @@ class MainController extends Controller
             // 以下エラーが出てしまうのでとりあえず追加
             // migrationFileの編集が必要（nullable or inputform追加）
             'year' => 2022,
-            'primary_categories_id' => 3,
-            'payment_methods_id' => 3,
-
+            'primary_categories_id' => $pId,
+            'payment_methods_id' => $pmId,
         ]);
 
         return redirect()->route('user.index')
@@ -149,7 +151,6 @@ class MainController extends Controller
 
     public function deletePostDestroy($id)
     {
-
         $main = Main::onlyTrashed()->findOrFail($id)->forceDelete();
 
         return redirect()->route('user.delete-post.index');

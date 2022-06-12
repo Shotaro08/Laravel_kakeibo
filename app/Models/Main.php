@@ -20,11 +20,10 @@ class Main extends Model
         'year',
         'month',
         'date',
-        'category1_id',
-        'category2_id',
+        'primary_categories_id',
         'amount',
         'description',
-        'payment_method_id',
+        'payment_methods_id',
     ];
 
     public function user()
@@ -35,5 +34,10 @@ class Main extends Model
     public function paymentMethod()
     {
         return $this->belongsTo(PaymentMethod::class, 'payment_methods_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(PrimaryCategory::class, 'primary_categories_id');
     }
 }

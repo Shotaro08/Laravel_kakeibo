@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SecondaryCategory;
+use App\Models\Main;
 
 class PrimaryCategory extends Model
 {
     use HasFactory;
 
-    public function secondary()
+    public function main()
     {
-        return $this->hasMany(SecondaryCategory::class);
+        return $this->hasMany(Main::class);
     }
 }

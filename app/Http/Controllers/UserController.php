@@ -21,25 +21,21 @@ class UserController extends Controller
         $user_id = Auth::id();
         $user = User::where('id', $user_id)->get();
 
-        // 登録している明細の数
-        $user_count = User::withCount('main')->get();
-        foreach($user_count as $u){
-            $main_count = $u->main_count;
-        }
+        // 今月のすべての明細の数、合計金額
+        $date = new Carbon;
+        $thisMonth = $date->month;
 
-        $main = Main::all();
+        $main = Main::where('user_id', $user_id)->where('month', $thisMonth);
+        $main_count = $main->count('id');
         $main_amount = $main->sum('amount');
 
         return view('user.dashboard', compact('user', 'main_count', 'main_amount'));
-
     }
 
     public function index()
     {
         // データベースから支払い明細の取得
-
         $user_id = Auth::id();
-
         $e_main = Main::where('user_id', $user_id)->get();
 
         return view('user.index', compact('e_main'));

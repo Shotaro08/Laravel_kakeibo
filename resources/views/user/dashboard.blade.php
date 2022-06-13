@@ -14,8 +14,12 @@
                     <p>{{ $u->name }}</p>
                     @endforeach
                     <div class="py-4">
-                        <p>登録している支払い明細は{{ $main_count }}件です</p>
+                        @if ($main_count !== 0)
+                        <p>今月の支払い明細は{{ $main_count }}件です</p>
                         <p>今月の支払い合計金額は{{ number_format($main_amount) }}円です</p>
+                        @else
+                        <p>登録している明細はありません</p>
+                        @endif
                     </div>
                 </div>
             </div>

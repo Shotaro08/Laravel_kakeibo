@@ -27,7 +27,10 @@ class UserController extends Controller
             $main_count = $u->main_count;
         }
 
-        return view('user.dashboard', compact('user', 'main_count'));
+        $main = Main::all();
+        $main_amount = $main->sum('amount');
+
+        return view('user.dashboard', compact('user', 'main_count', 'main_amount'));
 
     }
 

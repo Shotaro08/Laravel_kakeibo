@@ -40,4 +40,8 @@ class Main extends Model
     {
         return $this->belongsTo(PrimaryCategory::class, 'primary_categories_id');
     }
+
+    public function amountPerMonth(){
+
+    }
 }

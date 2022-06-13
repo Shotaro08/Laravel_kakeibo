@@ -13,8 +13,9 @@
                     @foreach ($user as $u)
                     <p>{{ $u->name }}</p>
                     @endforeach
-                    <div>
+                    <div class="py-4">
                         <p>登録している支払い明細は{{ $main_count }}件です</p>
+                        <p>今月の支払い合計金額は{{ number_format($main_amount) }}円です</p>
                     </div>
                 </div>
             </div>

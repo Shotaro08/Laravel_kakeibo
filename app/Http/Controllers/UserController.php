@@ -21,7 +21,14 @@ class UserController extends Controller
         $user_id = Auth::id();
         $user = User::where('id', $user_id)->get();
 
-        return view('user.dashboard', compact('user'));
+        // 登録している明細の数
+        $user_count = User::withCount('main')->get();
+        foreach($user_count as $u){
+            $main_count = $u->main_count;
+        }
+
+        return view('user.dashboard', compact('user', 'main_count'));
+
     }
 
     public function index()

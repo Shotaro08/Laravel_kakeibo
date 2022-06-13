@@ -13,6 +13,9 @@
                     @foreach ($user as $u)
                     <p>{{ $u->name }}</p>
                     @endforeach
+                    <div>
+                        <p>登録している支払い明細は{{ $main_count }}件です</p>
+                    </div>
                 </div>
             </div>
         </div>

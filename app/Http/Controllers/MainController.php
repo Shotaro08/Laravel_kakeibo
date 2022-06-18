@@ -59,8 +59,8 @@ class MainController extends Controller
             'date' => ['required', 'integer', 'digits_between:1,2'],
             'amount' => ['required', 'integer'],
             'description' => ['required', 'string', 'max:20'],
-            'primary_categories_id' => ['required', 'integer'],
-            'payment_methods_id' => ['required', 'integer'],
+            'primary_categories_id' => ['integer'],
+            'payment_methods_id' => ['integer'],
         ]);
 
         Main::create([
@@ -78,28 +78,14 @@ class MainController extends Controller
             ->with(['message' => '支払いを登録しました', 'status' => 'info']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $main_desc = Main::findOrFail($id);
 
-        return view('user.edit', compact('main_desc'));
+        $categories = PrimaryCategory::get();
+        $payment_methods = PaymentMethod::get();
+
+        return view('user.edit', compact('main_desc', 'categories', 'payment_methods'));
     }
 
     /**
@@ -117,6 +103,8 @@ class MainController extends Controller
         $main->date = $request->date;
         $main->amount = $request->amount;
         $main->description = $request->description;
+
+        dd($main);
 
         $main->save();
 

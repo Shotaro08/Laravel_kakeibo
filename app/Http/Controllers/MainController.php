@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Main;
 use App\Models\PrimaryCategory;
 use App\Models\PaymentMethod;
-use Carbon\Carbon;
-use App\Constants\Common;
+use App\Common\CommonMethod;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -25,11 +24,6 @@ class MainController extends Controller
     {
         $user_id = Auth::id();
         $e_main = Main::where('user_id', $user_id)->paginate(10);
-
-        // 定数化しようと思うけど、結局同じぐらいになるから一旦置いとく
-        // $date = new Common;
-        // $year = $date->year();
-        // dd($year);
 
         return view('user.index', compact('e_main'));
     }
@@ -57,8 +51,7 @@ class MainController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::id();
-        $date = new Carbon;
-        $thisYear = $date->year;
+        $thisYear = CommonMethod::thisYear();
 
         $request->validate([
             'month' => ['required', 'integer', 'digits_between:1,2'],
@@ -117,9 +110,6 @@ class MainController extends Controller
         return redirect()
             ->route('user.index')
             ->with(['message' => '明細を更新しました', 'status' => 'info']);
-
-        // 更新情報取得を確認済
-        // dd($main->month, $main->date, $main->amount, $main->description);
     }
 
     /**

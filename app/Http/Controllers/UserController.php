@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Common\CommonMethod;
+use App\Common\AmountMethod;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Main;
@@ -22,14 +23,19 @@ class UserController extends Controller
         $user_id = Auth::id();
         $user = User::where('id', $user_id)->get();
 
-        // 今月のすべての明細の数、合計金額
-        $thisMonth = CommonMethod::thisMonth();
-
-        $main = Main::where('user_id', $user_id)->where('month', $thisMonth);
+        $main = AmountMethod::thisMonth();
         $main_count = $main->count('id');
         $main_amount = $main->sum('amount');
 
-        return view('user.dashboard', compact('user', 'main_count', 'main_amount'));
+        $amountEachCategory =
+        [
+            'category1' => AmountMethod::amountThisMonthCategory1(),
+            'category2' => AmountMethod::amountThisMonthCategory2(),
+            'category3' => AmountMethod::amountThisMonthCategory3(),
+            'category4' => AmountMethod::amountThisMonthCategory4(),
+        ];
+
+        return view('user.dashboard', compact('user', 'main_count', 'main_amount', 'amountEachCategory'));
     }
 
     public function index()

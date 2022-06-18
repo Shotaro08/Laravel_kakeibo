@@ -103,8 +103,8 @@ class MainController extends Controller
         $main->date = $request->date;
         $main->amount = $request->amount;
         $main->description = $request->description;
-
-        dd($main);
+        $main->primary_categories_id = $request->category;
+        $main->payment_methods_id = $request->payment_method;
 
         $main->save();
 

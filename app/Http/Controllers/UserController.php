@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Common\CommonMethod;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Main;
@@ -22,8 +23,7 @@ class UserController extends Controller
         $user = User::where('id', $user_id)->get();
 
         // 今月のすべての明細の数、合計金額
-        $date = new Carbon;
-        $thisMonth = $date->month;
+        $thisMonth = CommonMethod::thisMonth();
 
         $main = Main::where('user_id', $user_id)->where('month', $thisMonth);
         $main_count = $main->count('id');

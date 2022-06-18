@@ -49,6 +49,32 @@
                                                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                             </div>
                                         </div>
+                                        <div class="p-2 w-1/2 mx-auto">
+                                            <div class="relative">
+                                                <label for="category"
+                                                    class="leading-7 text-sm text-gray-600">Category</label>
+                                                <div>
+                                                    <select name="category" id="category" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 w-1/2 mx-auto">
+                                            <div class="relative">
+                                                <label for="payment_method"
+                                                    class="leading-7 text-sm text-gray-600">Category</label>
+                                                <div>
+                                                    <select name="payment_method" id="payment_method" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                        @foreach ($payment_methods as $payment_method)
+                                                            <option value="{{ $payment_method->id }}">{{ $payment_method->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="p-2 w-full mt-4 flex justify-around">
                                             <button type="button" onclick="location.href='{{ route('user.index') }}'"
                                                 class=" text-white bg-gray-300 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">Cancel</button>

@@ -7,6 +7,7 @@ use App\Models\Main;
 use App\Models\PrimaryCategory;
 use App\Models\PaymentMethod;
 use Carbon\Carbon;
+use App\Constants\Common;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -24,6 +25,11 @@ class MainController extends Controller
     {
         $user_id = Auth::id();
         $e_main = Main::where('user_id', $user_id)->paginate(10);
+
+        // 定数化しようと思うけど、結局同じぐらいになるから一旦置いとく
+        // $date = new Common;
+        // $year = $date->year();
+        // dd($year);
 
         return view('user.index', compact('e_main'));
     }

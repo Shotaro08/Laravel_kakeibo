@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Main;
 use App\Models\PrimaryCategory;
-use App\Models\SecondaryCategory;
+use App\Models\PaymentMethod;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -34,7 +35,11 @@ class MainController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $categories = PrimaryCategory::get();
+
+        $payment_methods = PaymentMethod::get();
+
+        return view('user.create', compact('categories', 'payment_methods'));
     }
 
     /**
@@ -45,14 +50,9 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        $month = $request->month;
-        $date = $request->date;
-        $amount = $request->amount;
-        $description = $request->description;
         $user_id = Auth::id();
-
-        $pId = 1;
-        $pmId = 1;
+        $date = new Carbon;
+        $thisYear = $date->year;
 
         $request->validate([
             'month' => ['required', 'integer', 'digits_between:1,2'],
@@ -67,11 +67,9 @@ class MainController extends Controller
             'amount' => $request->amount,
             'description' => $request->description,
             'user_id' => $user_id,
-            // 以下エラーが出てしまうのでとりあえず追加
-            // migrationFileの編集が必要（nullable or inputform追加）
-            'year' => 2022,
-            'primary_categories_id' => $pId,
-            'payment_methods_id' => $pmId,
+            'year' => $thisYear,
+            'primary_categories_id' => $request->category,
+            'payment_methods_id' => $request->payment_method,
         ]);
 
         return redirect()->route('user.index')

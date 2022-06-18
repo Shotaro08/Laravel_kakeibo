@@ -59,6 +59,8 @@ class MainController extends Controller
             'date' => ['required', 'integer', 'digits_between:1,2'],
             'amount' => ['required', 'integer'],
             'description' => ['required', 'string', 'max:20'],
+            'primary_categories_id' => ['required', 'integer'],
+            'payment_methods_id' => ['required', 'integer'],
         ]);
 
         Main::create([

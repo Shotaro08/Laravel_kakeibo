@@ -16,13 +16,13 @@ class Main extends Model
     protected $table = "main";
 
     protected $fillable = [
-        'user_id',
-        'year',
         'month',
         'date',
-        'primary_categories_id',
         'amount',
         'description',
+        'user_id',
+        'year',
+        'primary_categories_id',
         'payment_methods_id',
     ];
 

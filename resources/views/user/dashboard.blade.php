@@ -21,7 +21,7 @@
                             <p>登録している明細はありません</p>
                         @endif
                     </div>
-                    <div >
+                    <div>
                         <p>category1_amount:{{ number_format($amountEachCategory['category1']) }}</p>
                         <p>category2_amount:{{ number_format($amountEachCategory['category2']) }}</p>
                         <p>category3_amount:{{ number_format($amountEachCategory['category3']) }}</p>
@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <div class="flex-1 container p-6 bg-white border-b border-gray-200">
-                    <div class="py-3 bg-white">支出分類</div>
-                    <canvas class="relative" id="chartPie" style="width:400px height:400px"></canvas>
+                    <div class="bg-white">支出分類</div>
+                    <canvas class="mx-auto" id="chartPie" style="width:400px height:400px"></canvas>
                 </div>
             </div>
         </div>
@@ -39,8 +39,7 @@
     <!-- Required chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var amountEachCategory = <?php echo json_encode($amountEachCategory); ?>;
-        const dataPie = {
+        var amountEachCategory = <?php echo json_encode($amountEachCategory); ?>;        const dataPie = {
             labels: ["固定費", "食費", "交通費", "娯楽費"],
             datasets: [{
                 label: "My First Dataset",
@@ -65,11 +64,19 @@
             data: dataPie,
             options: {
                 responsive: false,
-                maintainAspectRatio: true
-            },
-        };
+                maintainAspectRatio: true,
+                legend: {
+                    display: true,
+                    labels: {
+                        boxWidth: 20,
+                        fontSize: 8,
+                    }
+                }
+            }
+        }
 
         var chartBar = new Chart(document.getElementById("chartPie"), configPie);
         // なぜ赤くなる？
+
     </script>
 </x-app-layout>

@@ -9,9 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex">
                 <div class="flex-1 p-6 bg-white border-b border-gray-200">
-                    Say Hi!!
+                    <p>こんにちは</p>
                     @foreach ($user as $u)
-                        <p>{{ $u->name }}</p>
+                        <p>{{ $u->name }}さん</p>
                     @endforeach
                     <div class="py-4">
                         @if ($main_count !== 0)
@@ -21,12 +21,28 @@
                             <p>登録している明細はありません</p>
                         @endif
                     </div>
-                    <div>
-                        <p>category1_amount:{{ number_format($amountEachCategory['category1']) }}</p>
-                        <p>category2_amount:{{ number_format($amountEachCategory['category2']) }}</p>
-                        <p>category3_amount:{{ number_format($amountEachCategory['category3']) }}</p>
-                        <p>category4_amount:{{ number_format($amountEachCategory['category4']) }}</p>
-                    </div>
+                    <section class="text-gray-600 body-font">
+                        <div class="container mx-auto mt-20">
+                            <div class="flex flex-wrap -m-4 text-center">
+                                <div class="p-4 sm:w-1/4 w-1/2">
+                                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">{{ number_format($amountEachCategory['category1']) }}</h2>
+                                    <p class="leading-relaxed">{{ $categories->find(1)->name }}</p>
+                                </div>
+                                <div class="p-4 sm:w-1/4 w-1/2">
+                                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">{{ number_format($amountEachCategory['category2']) }}</h2>
+                                    <p class="leading-relaxed">{{ $categories->find(2)->name }}</p>
+                                </div>
+                                <div class="p-4 sm:w-1/4 w-1/2">
+                                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">{{ number_format($amountEachCategory['category3']) }}</h2>
+                                    <p class="leading-relaxed">{{ $categories->find(3)->name }}</p>
+                                </div>
+                                <div class="p-4 sm:w-1/4 w-1/2">
+                                    <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">{{ number_format($amountEachCategory['category4']) }}</h2>
+                                    <p class="leading-relaxed">{{ $categories->find(4)->name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
                 <div class="flex-1 container p-6 bg-white border-b border-gray-200">
                     <div class="bg-white">支出分類</div>

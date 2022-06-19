@@ -9,10 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <section class="text-gray-600 body-font">
-                    <div class="container md:px-5 py-24 mx-auto">
-                        <div class="flex flex-col text-center w-full mb-5">
-                            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">収支明細</h1>
-                        </div>
+                    <div class="container md:px-5 py-20 mx-auto">
                         {{-- 登録後のフラッシュメッセージ --}}
                         <x-flash-message status="session('status')" />
                         <div class="lg:w-2/3 w-full mx-auto overflow-auto">

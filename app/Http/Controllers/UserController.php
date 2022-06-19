@@ -7,6 +7,7 @@ use App\Common\AmountMethod;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Main;
+use App\Models\PrimaryCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,8 @@ class UserController extends Controller
         $main_count = $main->count('id');
         $main_amount = $main->sum('amount');
 
+        $categories = PrimaryCategory::all();
+
         $amountEachCategory =
         [
             'category1' => AmountMethod::amountThisMonthCategory1(),
@@ -35,7 +38,7 @@ class UserController extends Controller
             'category4' => AmountMethod::amountThisMonthCategory4(),
         ];
 
-        return view('user.dashboard', compact('user', 'main_count', 'main_amount', 'amountEachCategory'));
+        return view('user.dashboard', compact('user', 'main_count', 'main_amount', 'categories','amountEachCategory'));
     }
 
     public function index()

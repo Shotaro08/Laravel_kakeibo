@@ -18,7 +18,7 @@ class MainSeeder extends Seeder
     {
         DB::table('main')->insert([
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -28,7 +28,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -38,7 +38,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -48,7 +48,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -58,7 +58,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -68,7 +68,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -78,7 +78,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -88,7 +88,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -98,7 +98,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -108,7 +108,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -118,7 +118,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -128,7 +128,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -138,7 +138,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -148,7 +148,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -158,7 +158,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -168,7 +168,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -178,7 +178,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -188,7 +188,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,
@@ -198,7 +198,7 @@ class MainSeeder extends Seeder
             'payment_methods_id' => 2,
         ],
         [
-            'user_id' => 1,
+            'users_id' => 1,
             'year' => 2022,
             'month' => 5,
             'date' => 28,

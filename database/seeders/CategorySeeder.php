@@ -34,6 +34,10 @@ class CategorySeeder extends Seeder
                 'id' => 4,
                 'name' => '娯楽費',
                 'sort_order' => 4,
+            ], [
+                'id' => 5,
+                'name' => 'その他',
+                'sort_order' => 5,
             ],
         ]);
     }

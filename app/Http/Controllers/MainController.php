@@ -67,7 +67,7 @@ class MainController extends Controller
             'date' => $request->date,
             'amount' => $request->amount,
             'description' => $request->description,
-            'user_id' => $user_id,
+            'users_id' => $user_id,
             'year' => $thisYear,
             'primary_categories_id' => $request->category,
             'payment_methods_id' => $request->payment_method,

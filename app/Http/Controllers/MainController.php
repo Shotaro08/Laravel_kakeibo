@@ -50,7 +50,7 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = Auth::id();
+        $user_id = CommonMethod::userId();
         $thisYear = CommonMethod::thisYear();
 
         $request->validate([
@@ -72,8 +72,6 @@ class MainController extends Controller
             'primary_categories_id' => $request->category,
             'payment_methods_id' => $request->payment_method,
         ]);
-
-        dd($user_id);
 
         return redirect()->route('user.index')
             ->with(['message' => '支払いを登録しました', 'status' => 'info']);

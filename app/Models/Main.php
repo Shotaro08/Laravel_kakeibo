@@ -20,7 +20,7 @@ class Main extends Model
         'date',
         'amount',
         'description',
-        'user_id',
+        'users_id',
         'year',
         'primary_categories_id',
         'payment_methods_id',

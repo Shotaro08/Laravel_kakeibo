@@ -16,14 +16,17 @@ class PaymentMethodSeeder extends Seeder
     {
         DB::table('payment_methods')->insert([
             [
+                'id' => 1,
                 'name' => '現金',
                 'sort_order' => 1,
             ],
             [
+                'id' => 2,
                 'name' => 'クレジットカード',
                 'sort_order' => 2,
             ],
             [
+                'id' => 3,
                 'name' => 'PayPay',
                 'sort_order' => 3,
             ],

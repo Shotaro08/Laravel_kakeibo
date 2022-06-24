@@ -698,6 +698,9 @@ select {
 .ml-4 {
   margin-left: 1rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -721,12 +724,6 @@ select {
 }
 .mb-10 {
   margin-bottom: 2.5rem;
-}
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
 }
 .block {
   display: block;
@@ -1079,18 +1076,6 @@ select {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -1164,9 +1149,6 @@ select {
 }
 .font-semibold {
   font-weight: 600;
-}
-.font-bold {
-  font-weight: 700;
 }
 .uppercase {
   text-transform: uppercase;

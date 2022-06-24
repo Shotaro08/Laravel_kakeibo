@@ -58,6 +58,7 @@ class MainController extends Controller
             'date' => ['required', 'integer', 'digits_between:1,2'],
             'amount' => ['required', 'integer'],
             'description' => ['required', 'string', 'max:20'],
+            'users_id' => ['required', 'integer'],
             'primary_categories_id' => ['integer'],
             'payment_methods_id' => ['integer'],
         ]);

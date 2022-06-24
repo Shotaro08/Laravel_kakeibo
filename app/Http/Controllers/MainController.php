@@ -73,6 +73,8 @@ class MainController extends Controller
             'payment_methods_id' => $request->payment_method,
         ]);
 
+        dd($user_id);
+
         return redirect()->route('user.index')
             ->with(['message' => '支払いを登録しました', 'status' => 'info']);
     }

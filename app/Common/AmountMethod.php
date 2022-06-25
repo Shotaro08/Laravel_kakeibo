@@ -14,7 +14,7 @@ class AmountMethod
         $user_id = Auth::id();
         $thisMonth = CommonMethod::thisMonth();
 
-        $d_thisMonth = Main::where('user_id', $user_id)->where('month', $thisMonth);
+        $d_thisMonth = Main::where('users_id', $user_id)->where('month', $thisMonth);
 
         return $d_thisMonth;
     }

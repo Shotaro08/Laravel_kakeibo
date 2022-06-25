@@ -21,6 +21,7 @@
                             <p>登録している明細はありません</p>
                         @endif
                     </div>
+                    @if ($main_count !== 0)
                     <section class="text-gray-600 body-font">
                         <div class="container mx-auto mt-3 md:mt-20">
                             <div class="flex flex-wrap -m-4 text-center">
@@ -48,6 +49,10 @@
                     <div class="bg-white">支出分類</div>
                     <canvas class="mx-auto" id="chartPie" style="width:400px height:400px"></canvas>
                 </div>
+                @else
+                <div class="flex-1"></div>
+                <div class="flex-1"></div>
+                @endif
             </div>
         </div>
     </div>

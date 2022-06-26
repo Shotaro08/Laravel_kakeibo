@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 px-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg">
                 <section class="text-gray-600 body-font">
-                    <div class="py-8 px-1 md:px-3 md:py-24 mx-auto">
+                    <div class="py-8 px-1 md:px-3 mx-auto">
                         {{-- <div class="flex flex-col text-center w-full mb-10">
                         <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900"></h1>
                         </div> --}}
@@ -30,10 +30,10 @@
                                                 class="px-1 md:px-4 md:py-3 title-font tracking-wider font-medium text-gray-900 text-xs md:text-base bg-gray-100">
                                                 Amount</th>
                                             <th
-                                                class="px-1 md:px-4 md:py-3 title-font tracking-wider font-medium text-gray-900 text-xs md:text-base bg-gray-100 rounded-tl rounded-bl">
+                                                class="px-1 md:px-4 md:py-3 title-font tracking-wider font-medium text-gray-900 text-xs md:text-base bg-gray-100">
                                                 Description</th>
                                             <th
-                                                class="px-1 md:px-4 md:py-3 title-font tracking-wider font-medium text-gray-900 text-xs md:text-base bg-gray-100 rounded-tr rounded-br">
+                                                class="px-1 md:px-4 md:py-3 title-font tracking-wider font-medium text-gray-900 text-xs md:text-base bg-gray-100">
                                             </th>
                                         </tr>
                                     </thead>
@@ -54,7 +54,7 @@
                                                     <td class="px-1 md:px-4 py-3 text-xs md:text-base">
                                                         <button href="#" type="button" data-id="{{ $post->id }}"
                                                             onclick="deleteMain(this)"
-                                                            class="flex ml-auto text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">完全に削除</button>
+                                                            class="flex ml-auto text-white bg-red-400 border-0 py-1 px-2 md:py-2 md:px-4 focus:outline-none hover:bg-red-500 rounded">完全に削除</button>
                                                     </td>
                                                 </form>
                                             </tr>
@@ -63,13 +63,13 @@
                                 </table>
                         </div>
                     </div>
+                    </section>
                 @else
-                    <div class="mx-auto">
-                        <p class="mx-auto">削除した項目はありません</p>
+                    <div class="container w-full">
+                    <div class="px-4">
+                        <p>削除した明細はありません</p>
                     </div>
                     @endif
-
-                </section>
             </div>
         </div>
     </div>

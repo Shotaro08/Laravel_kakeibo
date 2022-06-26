@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 px-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg">
                 <section class="text-gray-600 body-font">
-                    <div class="py-8 px-1 md:px-3 md:py-24 mx-auto">
+                    <div class="py-8 px-1 md:px-3 mx-auto">
                         @if ($e_main->isNotEmpty())
                             <div class="flex flex-col text-center w-full mb-5">
                                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">支出管理</h1>
@@ -76,16 +76,18 @@
                                 <div class="mt-2 p-2">{{ $e_main->links() }}</div>
                             </div>
                     </div>
-                @else
-                    <div class="container w-full">
+                </section>
+            @else
+                <div class="container w-full">
+                    <div class="px-4">
                         <p>登録している明細はありません</p>
-                        <div class="flex mt-3 p-3 mx-auto">
+                        <div class="flex mt-4  mx-auto">
                             <button onclick="location.href='{{ route('user.create') }}'"
                                 class="text-white bg-blue-500 border-0 py-1 px-3 md:py-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded mb-3 sm:text-sm md:text-base">新規登録</button>
                         </div>
                     </div>
-                    @endif
-                </section>
+                </div>
+                @endif
             </div>
         </div>
     </div>

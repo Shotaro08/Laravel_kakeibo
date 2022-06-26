@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 px-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg md:flex">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg md:flex">
                 <div class="flex-1 p-6 bg-white border-b border-gray-200">
                     <p>こんにちは</p>
                     @foreach ($user as $u)
@@ -17,28 +17,30 @@
                         @if ($main_count !== 0)
                             <p>今月の支払い明細は{{ $main_count }}件です</p>
                             <p>今月の支払い合計金額は{{ number_format($main_amount) }}円です</p>
-                        @else
-                            <p>登録している明細はありません</p>
-                        @endif
                     </div>
                     @if ($main_count !== 0)
                     <section class="text-gray-600 body-font">
                         <div class="container mx-auto mt-3 md:mt-20">
                             <div class="flex flex-wrap -m-4 text-center">
                                 <div class="p-4 sm:w-1/4 w-1/2">
-                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl  text-gray-900">{{ number_format($amountEachCategory['category1']) }}</h2>
+                                    <h2
+                                        class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl  text-gray-900">
+                                        {{ number_format($amountEachCategory['category1']) }}</h2>
                                     <p class="leading-relaxed">{{ $categories->find(1)->name }}</p>
                                 </div>
                                 <div class="p-4 sm:w-1/4 w-1/2">
-                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">{{ number_format($amountEachCategory['category2']) }}</h2>
+                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">
+                                        {{ number_format($amountEachCategory['category2']) }}</h2>
                                     <p class="leading-relaxed">{{ $categories->find(2)->name }}</p>
                                 </div>
                                 <div class="p-4 sm:w-1/4 w-1/2">
-                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">{{ number_format($amountEachCategory['category3']) }}</h2>
+                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">
+                                        {{ number_format($amountEachCategory['category3']) }}</h2>
                                     <p class="leading-relaxed">{{ $categories->find(3)->name }}</p>
                                 </div>
                                 <div class="p-4 sm:w-1/4 w-1/2">
-                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">{{ number_format($amountEachCategory['category4']) }}</h2>
+                                    <h2 class="title-font font-medium sm:text-4xl md:text-xl lg:text-3xl text-gray-900">
+                                        {{ number_format($amountEachCategory['category4']) }}</h2>
                                     <p class="leading-relaxed">{{ $categories->find(4)->name }}</p>
                                 </div>
                             </div>
@@ -49,9 +51,8 @@
                     <div class="bg-white">支出分類</div>
                     <canvas class="mx-auto" id="chartPie" style="width:400px height:400px"></canvas>
                 </div>
-                @else
-                <div class="flex-1"></div>
-                <div class="flex-1"></div>
+            @else
+                <p>登録している明細はありません</p>
                 @endif
             </div>
         </div>

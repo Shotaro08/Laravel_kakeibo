@@ -18,7 +18,7 @@
                         HOME
                     </x-nav-link>
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                        収支管理
+                        支出管理
                     </x-nav-link>
                     <x-nav-link :href="route('user.delete-post.index')"
                         :active="request()->routeIs('user.delete-post.index')">
@@ -83,7 +83,7 @@
                 HOME
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                収支管理
+                支出管理
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.delete-post.index')" :active="request()->routeIs('user.delete-post.index')">
                 削除済明細

@@ -129,7 +129,7 @@ class MainController extends Controller
     public function deletePostIndex()
     {
         $user_id = Auth::id();
-        $deletePosts = Main::where('user_id', $user_id)->onlyTrashed()->get();
+        $deletePosts = Main::where('users_id', $user_id)->onlyTrashed()->get();
 
         return view('user.delete-post', compact('deletePosts'));
     }

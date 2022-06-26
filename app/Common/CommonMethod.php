@@ -3,6 +3,7 @@
 namespace App\Common;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class CommonMethod
 {
@@ -32,5 +33,10 @@ class CommonMethod
         $thisYear = $date->year;
 
         return $thisYear;
+    }
+
+    public static function userId(){
+        $user_id = Auth::id();
+        return $user_id;
     }
 }

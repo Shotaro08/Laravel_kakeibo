@@ -45,7 +45,7 @@ class UserController extends Controller
     {
         // データベースから支払い明細の取得
         $user_id = Auth::id();
-        $e_main = Main::where('user_id', $user_id)->get();
+        $e_main = Main::where('users_id', $user_id)->get();
 
         return view('user.index', compact('e_main'));
     }

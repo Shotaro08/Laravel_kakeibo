@@ -23,7 +23,7 @@ class MainController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $e_main = Main::where('user_id', $user_id)->paginate(10);
+        $e_main = Main::where('users_id', $user_id)->paginate(10);
 
         return view('user.index', compact('e_main'));
     }
@@ -50,7 +50,7 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = Auth::id();
+        $user_id = CommonMethod::userId();
         $thisYear = CommonMethod::thisYear();
 
         $request->validate([
@@ -67,7 +67,7 @@ class MainController extends Controller
             'date' => $request->date,
             'amount' => $request->amount,
             'description' => $request->description,
-            'user_id' => $user_id,
+            'users_id' => CommonMethod::userId(),
             'year' => $thisYear,
             'primary_categories_id' => $request->category,
             'payment_methods_id' => $request->payment_method,

@@ -18,6 +18,7 @@
                             <p>今月の支払い明細は{{ $main_count }}件です</p>
                             <p>今月の支払い合計金額は{{ number_format($main_amount) }}円です</p>
                     </div>
+                    @if ($main_count !== 0)
                     <section class="text-gray-600 body-font">
                         <div class="container mx-auto mt-3 md:mt-20">
                             <div class="flex flex-wrap -m-4 text-center">
